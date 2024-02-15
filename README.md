@@ -8,6 +8,7 @@ As the global interest in Ayurveda, Yoga, Unani, Siddha, and Homeopathy (AYUSH) 
     
 ## ALGORITHM
  - Python
- - 
+ - Tweet.io
+   
 ## MODEL
 ![WhatsApp Image 2024-02-15 at 11 22 12_b165002b](https://github.com/subash-ghub/A.D.D./assets/104593776/c6ed8ce2-8773-44c6-b4bc-15afdec46bde)
