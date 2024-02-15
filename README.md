@@ -7,7 +7,7 @@ As the global interest in Ayurveda, Yoga, Unani, Siddha, and Homeopathy (AYUSH) 
   * Temperature sensor
     
 ## ALGORITHM
- - Python
+ - Python (Model predictive control, Proportional-integral-derivative control & Fuzzy-logic knowledge-based systems + Source_ Code)
  - Tweet.io
    
 ## MODEL
