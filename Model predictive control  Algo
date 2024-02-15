@@ -1,0 +1,48 @@
+import numpy as np
+from scipy.optimize import minimize
+
+class ModelPredictiveControl:
+    def __init__(self, A, B, Q, R, N):
+        self.A = A  # System dynamics matrix
+        self.B = B  # Control input matrix
+        self.Q = Q  # State cost matrix
+        self.R = R  # Control cost matrix
+        self.N = N  # Prediction horizon
+
+    def cost_function(self, u, x):
+        cost = 0.0
+        for i in range(self.N):
+            cost += np.dot(np.dot(x[:, i].T, self.Q), x[:, i]) + np.dot(np.dot(u[:, i].T, self.R), u[:, i])
+            x = np.dot(self.A, x) + np.dot(self.B, u[:, i])
+        return cost
+
+    def optimize_control(self, x0):
+        u_init = np.zeros((self.B.shape[1], self.N))
+        res = minimize(self.cost_function, u_init, args=(x0,), method='SLSQP')
+        return res.x
+
+# Example usage:
+if __name__ == "__main__":
+    # Define system dynamics
+    A = np.array([[1, 0.1],
+                  [0, 1]])
+    B = np.array([[0.005],
+                  [0.1]])
+    Q = np.eye(2)  # State cost matrix
+    R = np.eye(1)  # Control cost matrix
+    N = 10  # Prediction horizon
+
+    # Initialize MPC controller
+    mpc_controller = ModelPredictiveControl(A, B, Q, R, N)
+
+    # Simulate system
+    x0 = np.array([0, 0])  # Initial state
+    for t in range(20):
+        # Optimize control input
+        u_opt = mpc_controller.optimize_control(x0)
+
+        # Apply control input
+        x0 = np.dot(A, x0) + np.dot(B, u_opt[:, 0])
+
+        # Print results
+        print(f"Time: {t}, State: {x0}, Control: {u_opt[:, 0]}")
