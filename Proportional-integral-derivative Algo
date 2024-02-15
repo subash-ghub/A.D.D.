@@ -1,0 +1,40 @@
+class PIDController:
+    def __init__(self, Kp, Ki, Kd, setpoint):
+        self.Kp = Kp
+        self.Ki = Ki
+        self.Kd = Kd
+        self.setpoint = setpoint
+
+        self.prev_error = 0
+        self.integral = 0
+
+    def compute(self, feedback):
+        error = self.setpoint - feedback
+
+        self.integral += error
+        derivative = error - self.prev_error
+
+        output = self.Kp * error + self.Ki * self.integral + self.Kd * derivative
+
+        self.prev_error = error
+
+        return output
+
+# Example usage:
+if __name__ == "__main__":
+    # Example parameters
+    Kp = 0.5
+    Ki = 0.2
+    Kd = 0.1
+    setpoint = 100
+
+    # Initialize PID controller
+    pid = PIDController(Kp, Ki, Kd, setpoint)
+
+    # Simulated feedback
+    feedback = 80
+
+    # Compute control output
+    control_output = pid.compute(feedback)
+
+    print("Control output:", control_output)
