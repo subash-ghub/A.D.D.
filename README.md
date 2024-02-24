@@ -12,5 +12,5 @@ As the global interest in Ayurveda, Yoga, Unani, Siddha, and Homeopathy (AYUSH) 
    
 ## MODEL
 ![WhatsApp Image 2024-02-15 at 11 22 12_b165002b](https://github.com/subash-ghub/A.D.D./assets/104593776/c6ed8ce2-8773-44c6-b4bc-15afdec46bde)
-
+<div style="text-align:center"><img src="./ezgif.com-video-to-gif.gif" /></div>
 **Blender LINK :** https://drive.google.com/file/d/15iL8pUKBR-yshLmA0bbLHfGVZlKnKC4t/view?usp=sharing
